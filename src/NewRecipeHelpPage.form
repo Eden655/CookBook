@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="NewRecipeHelpPage">
+  <grid id="27dc6" binding="Mainpanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="401"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <grid id="30ee8" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="4ca36" class="javax.swing.JFormattedTextField" binding="newRecipeHelpFormattedTextField" default-binding="true">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+            </constraints>
+            <properties>
+              <editable value="false"/>
+              <text value="New Recipe Help"/>
+            </properties>
+          </component>
+          <component id="3d2f8" class="javax.swing.JTextPane" binding="onThisPageYouTextPane" default-binding="true">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="50"/>
+              </grid>
+            </constraints>
+            <properties>
+              <font size="15"/>
+              <text value="On this page, you are able to add a new recipe to the list.  To add the name, you double-click on the text box at the top left and type it in. To add a picture ... For any special important notes, in the first box named 'important notes', you can type in any kind of allergies that need to be kept in mind, or any special changes that are not officially part of the recipe. To add the instructions, in the second box named 'instructions' you can type in the instructions of the recipe, step by step, or however else you wish to note it down.  To add the variables, you can type the time in minutes,  likability as the average number, and difficulty can be selected with a spinner. To calculate the likability, if you are not sure how to measure the likability, you can press the '?' button and it will lead u to another page that will help you calculate the average likability. The type of ingredients can be selected by pressing the checkbox next to it. More than one can be selected.  For more specific ingredients, you can type them into the list located under the picture."/>
+            </properties>
+          </component>
+          <component id="54059" class="javax.swing.JButton" binding="backButton" default-binding="true">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Back"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
