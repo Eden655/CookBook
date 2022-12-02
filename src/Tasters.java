@@ -1,20 +1,31 @@
 public class Tasters {
 
     private String TastersName;
-    private int Rating;
+    private int Marks;
+    private int TotalAverage;
 
-    public Tasters(String tastersName, int rating) {
+    public Tasters(String tastersName, int marks) {
         TastersName = tastersName;
-        Rating = rating;
+        Marks = marks;
     }
 
+    public Tasters(int marks) {
+        Marks = marks;
+    }
+
+    public Tasters(String tastersName, int marks, int totalAverage) {
+        TastersName = tastersName;
+        Marks = marks;
+        TotalAverage = totalAverage;
+    }
     public Tasters(String tastersName) {
         TastersName = tastersName;
     }
 
     public String getTastersName() {return TastersName;}
     public void setTastersName(String tastersName) {TastersName = tastersName;}
-
-    public int getRating() {return Rating;}
-    public void setRating(int rating) {Rating = rating;}
+    public int getMarks() {return Marks;}
+    public void setMarks(int marks) {Marks = marks;}
+    public int getTotalAverage() {return TotalAverage;}
+    public void setTotalAverage(int totalAverage) {TotalAverage = totalAverage;}
 }

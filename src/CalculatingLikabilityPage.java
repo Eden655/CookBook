@@ -3,7 +3,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.util.ArrayList;
 
 public class CalculatingLikabilityPage extends JFrame{
     private JPanel Mainpanel;
@@ -12,16 +12,27 @@ public class CalculatingLikabilityPage extends JFrame{
     private JButton EditAddTasterButton;
     private JButton deleteButton;
     private JButton calculateButton;
-    private JTextField textField1;
-    private JList list1;
+    private JTextField TotalAverage;
+    private JList listTasters;
     private JButton helpButton;
     private JFormattedTextField tastersFormattedTextField;
-    private JTextField textField2;
+    private JTextField Marks;
+    private JTextField TastersName;
+    private JButton addTastingMemberButton;
+    private JButton addRatingButton;
+    public static ArrayList<Tasters> arrayT = new ArrayList<Tasters>();
+    private static DefaultListModel listTastersModel;
+
+
 
     CalculatingLikabilityPage() {
         this.setContentPane(this.Mainpanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
+        listTastersModel = new DefaultListModel();
+        listTasters.setModel(listTastersModel);
+        refreshRecipeList();
+
 
 
         helpButton.addActionListener(new ActionListener() {
@@ -47,12 +58,53 @@ public class CalculatingLikabilityPage extends JFrame{
                 screen.setSize(750,500);
             }
         });
-        list1.addListSelectionListener(new ListSelectionListener() {
+
+        addTastingMemberButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Tasters g = new Tasters(
+                        TastersName.getText()
+
+                );
+                arrayT.add(g);
+                refreshRecipeList();
+
+            }
+        });
+        listTasters.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
+                int gradeNumber = listTasters.getSelectedIndex();
+                Tasters g = CalculatingLikabilityPage.arrayT.get(gradeNumber);
+                TotalAverage.setText(String.valueOf(g.getTotalAverage()));
 
+            }
+        });
+        addRatingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Tasters g = new Tasters(
+                        Integer.parseInt(Marks.getText())
+
+                );
+                arrayT.add(g);
+                refreshMarkList();
             }
         });
     }
     private void closeframe(){this.setVisible(false);}
+    public static void refreshRecipeList(){
+        listTastersModel.removeAllElements();
+        for (Tasters g : CalculatingLikabilityPage.arrayT){
+            listTastersModel.addElement(g.getTastersName());
+        }
+
+    }
+    public static void refreshMarkList(){
+        listTastersModel.removeAllElements();
+        for (Tasters g : CalculatingLikabilityPage.arrayT){
+            listTastersModel.addElement(g.getTastersName());
+        }
+
+    }
 }

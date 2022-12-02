@@ -270,6 +270,14 @@ public class SearchPage extends JFrame{
                     list1Model.addElement(r.getName());
             }
         });
+
+
+        timeCheckBox.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+
+            }
+        });
     }
 
     private void closeframe(){this.setVisible(false);}
@@ -280,33 +288,36 @@ public class SearchPage extends JFrame{
             list1Model.addElement(g.getName());
         }
     }
-    public static void refreshRecipeList2(){
+
+}
+    /*public static void refreshRecipeList2(){
         list1Model.removeAllElements();
         for (Recipe g : arrayVar){
             list1Model.addElement(g.getName());
         }
+        take every time and feed into:
+        public static int[] bubblesort(int[] array){
+        int temp;
+        for (int i = 1; i <= array.length; i++)
+            for ( int j = 0; j < (array.length - 1); j++)
+                if (array[j] > array[j+1]){
+
+                //swapping the numbers from the array
+                  temp = array[j];
+                  array[j] = array[j+1];
+                  array[j+1] = temp;
+                }
+        return array;
     }
+    }*/
 
-
-
-/*
-create a for loop that loops through all recipes and checks if it has that variable,
-if boolean = true then it (adds it to an array with all recipes that have that variable)
-else continues to loop
-
-if there is another variable selected, instead of sorting them with two variables,
-it takes the array created previously and loops through there
-*/
-
-
-
-}
     //public static void sortList(){
       //  int gradeNumber = list1.getSelectedIndex();
       //  Recipe g = NewRecipePage.array.get(gradeNumber);
       //  if (boolean g.isMilk() = true);
     //}
 
-
+// create new class in which is saves all important variables (time, likability, difficulty) and sorts in in
+// a array to then use to sort on searchpage
 
 

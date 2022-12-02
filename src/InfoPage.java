@@ -23,7 +23,7 @@ public class InfoPage extends JFrame{
     public JCheckBox grainsCheckBox;
     public JCheckBox meatCheckBox;
     public JCheckBox eggsCheckBox;
-    public JList Ingredience;
+    public JTextPane Ingredience;
     private JButton backButton;
     public JTextField Difficulty;
 
@@ -63,10 +63,10 @@ public class InfoPage extends JFrame{
     }
     private void closeframe(){this.setVisible(false);}
 
-    private void replaceinfo(){
+    //private void replaceinfo(){
 
        // ReName.setText(NewRecipePage.array.get(NewRecipePage.Name));
-    }
+    //}
 }
 
 // what if every time a new recipe is created and saved, the info page is made and stored in the front page,

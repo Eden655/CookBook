@@ -69,7 +69,7 @@ public class FrontPage extends JFrame{
                 Recipe g = NewRecipePage.array.get(gradeNumber);
                 screen.ReName.setText(g.getName());
                 screen.ImportantNotes.setText(g.getImNotes());
-                screen.Ingredience.setToolTipText(g.getIngredients());
+                screen.Ingredience.setText(g.getIngredients());
                 screen.Instructions.setText(g.getInstructions());
                 screen.Time.setText(String.valueOf(g.getTime()));
                 screen.Likability.setText(String.valueOf(g.getLikability()));
@@ -91,7 +91,7 @@ public class FrontPage extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 NewRecipePage screen = new NewRecipePage();
                 screen.setVisible(true);
-                screen.setSize(750,520);
+                screen.setSize(750,560);
                 closeframe();
             }
         });
