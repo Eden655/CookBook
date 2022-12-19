@@ -28,7 +28,6 @@ public class NewRecipePage extends JFrame{
     private JTextField Name;
     private JTextPane ingredients;
     public static ArrayList<Recipe> array = new ArrayList<Recipe>();
-    public static ArrayList<Variables> IVarray = new ArrayList<Variables>();
 
 
 
@@ -61,8 +60,6 @@ public class NewRecipePage extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 Recipe g = new Recipe(Name.getText(), imNotes.getText(), instructions.getText(), Integer.parseInt(Time.getText()), Double.parseDouble(Likability.getText()), Integer.parseInt(Difficulty.getText()), ingredients.getText(), milkCheckBox.isSelected(), otherLactoseProductsCheckBox.isSelected(), eggsCheckBox.isSelected(), meatCheckBox.isSelected(),fruitsCheckBox.isSelected(),otherSeafoodProductsCheckBox.isSelected(),vegetablesCheckBox.isSelected(),grainsCheckBox.isSelected(),fishCheckBox.isSelected(),condinanceCheckBox.isSelected());
                 array.add(g);
-                Variables v = new Variables(Integer.parseInt(Time.getText()), Integer.parseInt(Likability.getText()), Integer.parseInt(Difficulty.getText()));
-                IVarray.add(v);
                 FrontPage screen = new FrontPage();
                 screen.refreshRecipeList();
                 System.out.println("recipe g:" + g.name + g.ImNotes + g.Eggs + g.Fish);

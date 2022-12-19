@@ -23,7 +23,7 @@ public class InfoPage extends JFrame{
     public JCheckBox grainsCheckBox;
     public JCheckBox meatCheckBox;
     public JCheckBox eggsCheckBox;
-    public JTextPane Ingredience;
+    public JTextPane Ingredients;
     private JButton backButton;
     public JTextField Difficulty;
 

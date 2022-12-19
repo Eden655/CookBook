@@ -63,4 +63,27 @@ public class Recipe {
     public void setFish(boolean fish) {Fish = fish;}
     public boolean isCondiments() {return Condiments;}
     public void setCondiments(boolean condiments) {Condiments = condiments;}
+
+    @Override
+    public String toString() {
+        return "Recipe{" +
+                "name='" + name + '\'' +
+                ", ImNotes='" + ImNotes + '\'' +
+                ", Instructions='" + Instructions + '\'' +
+                ", Time=" + Time +
+                ", Likability=" + Likability +
+                ", Difficulty=" + Difficulty +
+                ", Ingredients='" + Ingredients + '\'' +
+                ", Milk=" + Milk +
+                ", OthLactosePro=" + OthLactosePro +
+                ", Eggs=" + Eggs +
+                ", Meat=" + Meat +
+                ", Fruits=" + Fruits +
+                ", OthSeafoodPro=" + OthSeafoodPro +
+                ", Vegetables=" + Vegetables +
+                ", Grains=" + Grains +
+                ", Fish=" + Fish +
+                ", Condiments=" + Condiments +
+                '}';
+    }
 }

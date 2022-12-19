@@ -11,13 +11,13 @@ import java.io.*;
 import java.awt.image.BufferedImage;
 import javax.imageio.ImageIO;
 
-public class NewRecipeHelpPage extends JFrame{
+public class DoesNotExist extends JFrame{
     private JPanel Mainpanel;
-    private JFormattedTextField newRecipeHelpFormattedTextField;
-    private JTextPane onThisPageYouTextPane;
+    private JTextPane thisPageDoesNotTextPane;
     private JButton backButton;
 
-    NewRecipeHelpPage() {
+
+    DoesNotExist() {
         this.setContentPane(this.Mainpanel);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
@@ -25,12 +25,13 @@ public class NewRecipeHelpPage extends JFrame{
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                NewRecipePage screen = new NewRecipePage();
+                FrontPage screen = new FrontPage();
                 screen.setVisible(true);
-                screen.setSize(850,785);
+                screen.setSize(750,500);
                 closeframe();
             }
         });
     }
     private void closeframe(){this.setVisible(false);}
 }
+

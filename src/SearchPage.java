@@ -16,7 +16,6 @@ import javax.imageio.ImageIO;
 public class SearchPage extends JFrame{
     private JPanel Mainpanel;
     private JFormattedTextField searchRecipeFormattedTextField;
-    private JTextField textField1;
     public JList list1;
     private JButton backButton;
     private JFormattedTextField variablesFormattedTextField;
@@ -35,10 +34,8 @@ public class SearchPage extends JFrame{
     private JCheckBox condinanceCheckBox;
     private JButton helpButton;
     private JButton infoButton;
-    private JButton searchButton;
     private static DefaultListModel list1Model;
     public static ArrayList<Recipe> arrayVar;
-
 
     SearchPage() {
         this.setContentPane(this.Mainpanel);
@@ -78,7 +75,7 @@ public class SearchPage extends JFrame{
                 Recipe g = NewRecipePage.array.get(gradeNumber);
                 screen.ReName.setText(g.getName());
                 screen.ImportantNotes.setText(g.getImNotes());
-                screen.Ingredience.setToolTipText(g.getIngredients());
+                screen.Ingredients.setText(g.getIngredients());
                 screen.Instructions.setText(g.getInstructions());
                 screen.Time.setText(String.valueOf(g.getTime()));
                 screen.Likability.setText(String.valueOf(g.getLikability()));
@@ -101,8 +98,6 @@ public class SearchPage extends JFrame{
             public void valueChanged(ListSelectionEvent e) {
                 int gradeNumber = list1.getSelectedIndex();
                 Recipe g = NewRecipePage.array.get(gradeNumber);
-                //Name.setText(g.getName());
-                //screen.milkCheckBox.setSelected(Boolean.valueOf(g.Milk));
 
 
             }
@@ -275,10 +270,101 @@ public class SearchPage extends JFrame{
         timeCheckBox.addChangeListener(new ChangeListener() {
             @Override
             public void stateChanged(ChangeEvent e) {
+                SortTime(NewRecipePage.array);
 
             }
         });
+
+        likabilityCheckBox.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                SortLikability(NewRecipePage.array);
+            }
+        });
+        difficultyCheckBox.addChangeListener(new ChangeListener() {
+            @Override
+            public void stateChanged(ChangeEvent e) {
+                SortDifficulty(NewRecipePage.array);
+            }
+        });
     }
+
+    public void SortTime(ArrayList<Recipe> x){
+        Recipe[] temp = new Recipe[2];
+        int counter = 0;
+        Recipe tmp;
+        for (Recipe r : x){
+            temp[counter] = r;
+            counter++;
+        }
+        for (int i = 0; i < temp.length; i++)
+            for ( int j = 0; j < (temp.length - 1); j++)
+                if (temp[j].getTime() > temp[j+1].getTime()){
+                    tmp = temp[j];
+                    temp[j] = temp[j+1];
+                    temp[j+1] = tmp;
+                }
+
+        for (int i = 0; i < temp.length; i++)
+                if(temp[i] != null)
+                    System.out.println(temp[i].toString());
+
+       list1Model.removeAllElements();
+        for (int i = 0; i < temp.length; i++)
+            list1Model.addElement(temp[i].getName());
+    }
+
+    public void SortLikability(ArrayList<Recipe> x){
+        Recipe[] tempL = new Recipe[2];
+        int counter = 0;
+        Recipe tmpL;
+        for (Recipe r : x){
+            tempL[counter] = r;
+            counter++;
+        }
+        for (int i = 0; i < tempL.length; i++)
+            for ( int j = 0; j < (tempL.length - 1); j++)
+                if (tempL[j].getLikability() > tempL[j+1].getLikability()){
+                    tmpL = tempL[j];
+                    tempL[j] = tempL[j+1];
+                    tempL[j+1] = tmpL;
+                }
+
+        for (int i = 0; i < tempL.length; i++)
+            if(tempL[i] != null)
+                System.out.println(tempL[i].toString());
+
+        list1Model.removeAllElements();
+        for (int i = 0; i < tempL.length; i++)
+            list1Model.addElement(tempL[i].getName());
+    }
+
+    public void SortDifficulty(ArrayList<Recipe> x){
+        Recipe[] tempD = new Recipe[2];
+        int counter = 0;
+        Recipe tmpD;
+        for (Recipe r : x){
+            tempD[counter] = r;
+            counter++;
+        }
+        for (int i = 0; i < tempD.length; i++)
+            for ( int j = 0; j < (tempD.length - 1); j++)
+                if (tempD[j].getDifficulty() > tempD[j+1].getDifficulty()){
+                    tmpD = tempD[j];
+                    tempD[j] = tempD[j+1];
+                    tempD[j+1] = tmpD;
+                }
+
+        for (int i = 0; i < tempD.length; i++)
+            if(tempD[i] != null)
+                System.out.println(tempD[i].toString());
+
+        list1Model.removeAllElements();
+        for (int i = 0; i < tempD.length; i++)
+            list1Model.addElement(tempD[i].getName());
+    }
+
+
 
     private void closeframe(){this.setVisible(false);}
 
@@ -290,34 +376,7 @@ public class SearchPage extends JFrame{
     }
 
 }
-    /*public static void refreshRecipeList2(){
-        list1Model.removeAllElements();
-        for (Recipe g : arrayVar){
-            list1Model.addElement(g.getName());
-        }
-        take every time and feed into:
-        public static int[] bubblesort(int[] array){
-        int temp;
-        for (int i = 1; i <= array.length; i++)
-            for ( int j = 0; j < (array.length - 1); j++)
-                if (array[j] > array[j+1]){
 
-                //swapping the numbers from the array
-                  temp = array[j];
-                  array[j] = array[j+1];
-                  array[j+1] = temp;
-                }
-        return array;
-    }
-    }*/
 
-    //public static void sortList(){
-      //  int gradeNumber = list1.getSelectedIndex();
-      //  Recipe g = NewRecipePage.array.get(gradeNumber);
-      //  if (boolean g.isMilk() = true);
-    //}
-
-// create new class in which is saves all important variables (time, likability, difficulty) and sorts in in
-// a array to then use to sort on searchpage
 
 

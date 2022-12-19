@@ -3,7 +3,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class FrontPage extends JFrame{
     private JPanel Mainpanel;
@@ -60,30 +59,38 @@ public class FrontPage extends JFrame{
         infoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                InfoPage screen = new InfoPage();
-                screen.setVisible(true);
-                screen.setSize(750,520);
-                closeframe();
+                if(listRecipe.getSelectedIndex() < 0){
+                    DoesNotExist screen = new DoesNotExist();
+                    screen.setVisible(true);
+                    screen.setSize(750,500);
+                    closeframe();
+                }
+                else {
+                    InfoPage screen = new InfoPage();
+                    screen.setVisible(true);
+                    screen.setSize(750,520);
+                    closeframe();
 
-                int gradeNumber = listRecipe.getSelectedIndex();
-                Recipe g = NewRecipePage.array.get(gradeNumber);
-                screen.ReName.setText(g.getName());
-                screen.ImportantNotes.setText(g.getImNotes());
-                screen.Ingredience.setText(g.getIngredients());
-                screen.Instructions.setText(g.getInstructions());
-                screen.Time.setText(String.valueOf(g.getTime()));
-                screen.Likability.setText(String.valueOf(g.getLikability()));
-                screen.Difficulty.setText(String.valueOf(g.getDifficulty()));
-                screen.milkCheckBox.setSelected(Boolean.valueOf(g.Milk));
-                screen.otherLactoseProductsCheckBox.setSelected(Boolean.valueOf(g.OthLactosePro));
-                screen.eggsCheckBox.setSelected(Boolean.valueOf(g.Eggs));
-                screen.meatCheckBox.setSelected(Boolean.valueOf(g.Meat));
-                screen.vegetablesCheckBox.setSelected(Boolean.valueOf(g.Vegetables));
-                screen.grainsCheckBox.setSelected(Boolean.valueOf(g.Grains));
-                screen.fishCheckBox.setSelected(Boolean.valueOf(g.Fish));
-                screen.otherSeafoodProductsCheckBox.setSelected(Boolean.valueOf(g.OthSeafoodPro));
-                screen.fruitsCheckBox.setSelected(Boolean.valueOf(g.Fruits));
-                screen.condinanceCheckBox.setSelected(Boolean.valueOf(g.Condiments));
+                    int gradeNumber = listRecipe.getSelectedIndex();
+                    Recipe g = NewRecipePage.array.get(gradeNumber);
+                    screen.ReName.setText(g.getName());
+                    screen.ImportantNotes.setText(g.getImNotes());
+                    screen.Ingredients.setText(g.getIngredients());
+                    screen.Instructions.setText(g.getInstructions());
+                    screen.Time.setText(String.valueOf(g.getTime()));
+                    screen.Likability.setText(String.valueOf(g.getLikability()));
+                    screen.Difficulty.setText(String.valueOf(g.getDifficulty()));
+                    screen.milkCheckBox.setSelected(Boolean.valueOf(g.Milk));
+                    screen.otherLactoseProductsCheckBox.setSelected(Boolean.valueOf(g.OthLactosePro));
+                    screen.eggsCheckBox.setSelected(Boolean.valueOf(g.Eggs));
+                    screen.meatCheckBox.setSelected(Boolean.valueOf(g.Meat));
+                    screen.vegetablesCheckBox.setSelected(Boolean.valueOf(g.Vegetables));
+                    screen.grainsCheckBox.setSelected(Boolean.valueOf(g.Grains));
+                    screen.fishCheckBox.setSelected(Boolean.valueOf(g.Fish));
+                    screen.otherSeafoodProductsCheckBox.setSelected(Boolean.valueOf(g.OthSeafoodPro));
+                    screen.fruitsCheckBox.setSelected(Boolean.valueOf(g.Fruits));
+                    screen.condinanceCheckBox.setSelected(Boolean.valueOf(g.Condiments));
+                }
             }
         });
         addButton.addActionListener(new ActionListener() {
@@ -91,7 +98,7 @@ public class FrontPage extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 NewRecipePage screen = new NewRecipePage();
                 screen.setVisible(true);
-                screen.setSize(750,560);
+                screen.setSize(850,785);
                 closeframe();
             }
         });
